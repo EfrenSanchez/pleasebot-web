@@ -66,8 +66,8 @@
 
                         <!-- Bot message types / Card -->
 
-                        <div class="mdc-card" v-if="r.type == 'basic_card'">
-                            <img :title="r.image.accessibilityText" :alt="r.image.accessibilityText" class="mdc-card__media-item" :src="r.image.url" v-if="r.image">
+                        <div class="mdc-card" v-if="r.type == 1">
+                            <img class="mdc-card__media-item" :src="r.imageUrl" v-if="r.imageUrl">
                             <section class="mdc-card__primary">
                                 <h1 class="mdc-card__title">{{r.title}}</h1>
                                 <br>
@@ -77,7 +77,7 @@
                                 {{r.formattedText}}
                             </section>
                             <section class="mdc-card__actions" v-for="button in r.buttons">
-                                <a class="mdc-button mdc-button--compact themed mdc-card__action" target="_blank" :href="button.openUrlAction.url">{{button.title}} <i class="material-icons openlink">open_in_new</i></a>
+                                <a class="mdc-button mdc-button--compact themed mdc-card__action" target="_blank" :href="button.postback">{{button.text}} <i class="material-icons openlink">open_in_new</i></a>
                             </section>
                         </div>
 
@@ -152,7 +152,7 @@
         </table>
 
         <br>
-        <p class="copyright" v-if="answers.length > 0">Proudly powered by <a href="https://ushakov.co">Ushakov</a> & <a href="https://dialogflow.com">Dialogflow</a></p>
+        
         <a id="bottom"></a>
     </main>
 </section>
