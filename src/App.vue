@@ -153,7 +153,7 @@
 
         <br>
         
-        <a id="bottom"></a>
+        <a id="bottom-iphone"></a>
     </main>
 </section>
 </template>
@@ -185,9 +185,10 @@ export default {
     watch: {
         answers: function(val){
             setTimeout(() => { 
-                document.querySelector('#bottom').scrollIntoView({ 
+                document.documentElement.scrollTop = document.querySelector('#bottom-iphone').offsetTop;
+                /*document.querySelector('#bottom-iphone').scrollIntoView({ 
                     behavior: 'smooth' 
-                })
+                })*/
             }, 2) // if new answers arrive, wait for render and then smoothly scroll down to #bottom selector, used as anchor
         }
     },

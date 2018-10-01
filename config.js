@@ -6,11 +6,11 @@ export default {
     },
     locale: {
         strings: {
-            welcomeTitle: "Hello, ask something to get started",
-            welcomeDescription: `You can type "Hello" for example. Or just press on the microphone to talk`,
+            welcomeTitle: "Try our bot",
+            welcomeDescription: `You can type "Book a trip" for example. Or just press on the microphone and say it`,
             offlineTitle: "Oh, no!",
             offlineDescription: "It looks like you are not connected to the internet, this webpage requires internet connection, to process your requests",
-            queryTitle: "Ask me something...",
+            queryTitle: "Please book...",
             voiceTitle: "Go ahead, im listening..."
         },
         settings: {
