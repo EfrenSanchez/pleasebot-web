@@ -1,89 +1,383 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Dialogflow for Web</title>
-        <meta name="description" content="Dialogflow unofficial Progressive Web App">
-        <link rel="canonical" href="https://mishushakov.github.io/dialogflow-web" />
 
-        <!-- Mobile Stuff -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="msapplication-tap-highlight" content="no">
+<html><head><script src="//static.codepen.io/assets/editor/live/console_runner-ce3034e6bde3912cc25f83cccb7caa2b0f976196f2f2d52303a462c826d54a73.js"></script><script src="//static.codepen.io/assets/editor/live/css_live_reload_init-e9c0cc5bb634d3d14b840de051920ac153d7d3d36fb050abad285779d7e5e8bd.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico"><link rel="mask-icon" type="" href="//static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111"><link rel="canonical" href="https://codepen.io/yildirimzlm/pen/mGKzEz">
 
-        <!-- Google Chrome -->
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="Dialogflow for Web">
-        <link rel="icon" href="https://console.dialogflow.com/api-client/assets/img/logo-short.png">
-        <link rel="manifest" href="/manifest.json">
-        <meta name="theme-color" content="#FF9800">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<style class="cp-pen-styles">* {
+  margin: 0;
+  padding: 0;
+}
 
-        <!-- Safari -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-title" content="Dialogflow for Web">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <link rel="apple-touch-icon" href="https://console.dialogflow.com/api-client/assets/img/logo-short.png">
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #a3c2f7;
+  background-image: linear-gradient(117deg, #4fb798 0%, #ffffff 100%);
+  font-family: 'Open Sans',sans-serif;
+}
 
-        <!-- OpenGraph -->
-        <meta property="og:title" content="Dialogflow for Web">
-        <meta property="og:image" content="https://imgur.com/YkOoS4h.png">
-        <meta property="og:description" content="Dialogflow unofficial Progressive Web App">
+.container {
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        <meta property="og:url" content="https://example.com">
-        <meta property="og:type" content="website" />
+.frame {
+  width: 320px;
+  height: 650px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 50px auto;
+  border: 6px solid #bdbbbb;
+  border-radius: 50px;
+  box-shadow: 14px 21px 42px 10px rgba(0, 0, 0, 0.2);
+}
+.frame-content {
+  width: 292px;
+  height: 622px;
+  background-color: rgb(245,245,245);
+  border: 16px solid #202020;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 47px;
+}
+.frame-content-header {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background-color: #f9f9f9;
+  /*linear-gradient(to top left,  #D0FBED,#FDD7EA , #f9f9f9); */
+  border-radius: 32px 32px 0 0;
+  border-bottom: 1px solid #ededed;
+}
+.frame-content-header .frame-header {
+  position: absolute;
+  width: 170px;
+  height: 24px;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #202020;
+  border-radius: 0 0 23px 23px;
+}
+.frame-content-header .frame-header-speaker {
+  margin-top: 6px;
+  width: 40px;
+  height: 4px;
+  background-color: #404040;
+  margin-left: auto;
+  margin-right: auto;
+}
+.frame-content-header .frame-header-camera {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  right: 40px;
+  top: 2px;
+  background-color: #090A50;
+  border: 3px solid #404040;
+  border-radius: 50%;
+}
+.frame-content-header .header-bars {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  color: #404040;
+}
+.frame-content-header .header-bars .header-bars-block {
+  margin-top: 3px;
+}
+.frame-content-header .header-bars .header-bars-block span {
+  font-size: 11px;
+  margin-left: 10px;
+}
+.frame-content-header .header-bars .header-bars-block i {
+  font-size: 11px;
+}
+.frame-content-header .header-control {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  color: #0083FF;
+  font-size: 15px;
+}
+.frame-content-header .header-control .fas {
+  cursor: pointer;
+  transition: all .6s;
+  display: inline-flex;
+}
+.frame-content-header .header-control .fas:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+.frame-content-header .header-control span {
+  font-weight: normal;
+  cursor: pointer;
+}
+.frame-content-header .header-title {
+  margin-top: 12px;
+}
+.frame-content-header .header-title span {
+  font-size: 25px;
+  font-weight: 600;
+  color: #404040;
+  font-family: Gotham;
+}
+.frame-content .frame-content-body {
+  width: 100%;
+}
+.frame-content .frame-content-body .content-body-block {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #ededed;
+  transition: all .5s;
+  cursor: pointer;
+}
+.frame-content .frame-content-body .content-body-block:hover {
+  background-color: #f2f2f2;
+}
+.frame-content .frame-content-body .content-body-block .block-user-img {
+  width: 37px;
+  height: 37px;
+}
+.frame-content .frame-content-body .content-body-block .block-user-img img {
+  width: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all ease-in-out .2s;
+}
+.frame-content .frame-content-body .content-body-block .block-user-img img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 5px .2px #c8c8c8;
+}
+.frame-content .frame-content-body .content-body-block .block-text {
+  margin-left: 8px;
+}
+.frame-content .frame-content-body .content-body-block .block-text h4 {
+  color: #232323;
+  font-size: 12px;
+}
+.frame-content .frame-content-body .content-body-block .block-text span {
+  font-size: 9px;
+  color: #c8c8c8;
+}
+.frame-content .frame-content-body .content-body-block .block-info {
+  position: absolute;
+  right: 0;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #0083FF;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 50%;
+  color: #0083FF;
+  font-size: 14px;
+}
+.frame-content .frame-content-nav {
+  position: absolute;
+  bottom: 28px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ededed;
+}
+.frame-content .frame-content-nav .nav-box {
+  width: 20%;
+  text-align: center;
+  color: #999999;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+.frame-content .frame-content-nav .nav-box:hover {
+  color: #0083FF;
+}
+.frame-content .frame-content-nav .nav-box span {
+  display: block;
+  font-size: 8px;
+}
+.frame-content .frame-content-nav .nav-box i {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+.frame-content .frame-content-nav .active {
+  color: #0083FF;
+}
+.frame-content .frame-content-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 28px;
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 0 0 30px 30px;
+}
+.frame-content .frame-content-bottom .bottom-shape {
+  width: 110px;
+  height: 4px;
+  margin-top: 15px;
+  background-color: #c8c8c8;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  transition: all .3s;
+  cursor: pointer;
+}
+.frame-content .frame-content-bottom .bottom-shape:hover {
+  background-color: #323232;
+}
+</style><script type="text/javascript">// Promises 
+var _eid_promises = {}; 
+// Turn the incoming message from extension 
+// into pending Promise resolving 
+window.addEventListener("message", function(event) { 
+    if(event.source !== window) return; 
+    if(event.data.src && (event.data.src === "background.js")) { 
+        console.log("Page received: "); 
+        console.log(event.data); 
+        // Get the promise 
+        if(event.data.nonce) { 
+            var p = _eid_promises[event.data.nonce]; 
+            // resolve 
+            if(event.data.result === "ok") { 
+                if(event.data.signature !== undefined) { 
+                    p.resolve({hex: event.data.signature}); 
+                } else if(event.data.version !== undefined) { 
+                    p.resolve(event.data.extension + "/" + event.data.version); 
+                } else if(event.data.cert !== undefined) { 
+                    p.resolve({hex: event.data.cert}); 
+                } else { 
+                    console.log("No idea how to handle message"); 
+                    console.log(event.data); 
+                } 
+            } else { 
+                // reject 
+                p.reject(new Error(event.data.result)); 
+            } 
+            delete _eid_promises[event.data.nonce]; 
+        } else { 
+            console.log("No nonce in event msg"); 
+        } 
+    } 
+}, false); 
+ 
+ 
+function TokenSigning() { 
+    function nonce() { 
+        var val = ""; 
+        var hex = "abcdefghijklmnopqrstuvwxyz0123456789"; 
+        for(var i = 0; i < 16; i++) val += hex.charAt(Math.floor(Math.random() * hex.length)); 
+        return val; 
+    } 
+ 
+    function messagePromise(msg) { 
+        return new Promise(function(resolve, reject) { 
+            // amend with necessary metadata 
+            msg["nonce"] = nonce(); 
+            msg["src"] = "page.js"; 
+            // send message 
+            window.postMessage(msg, "*"); 
+            // and store promise callbacks 
+            _eid_promises[msg.nonce] = { 
+                resolve: resolve, 
+                reject: reject 
+            }; 
+        }); 
+    } 
+    this.getCertificate = function(options) { 
+        var msg = {type: "CERT", lang: options.lang, filter: options.filter}; 
+        console.log("getCertificate()"); 
+        return messagePromise(msg); 
+    }; 
+    this.sign = function(cert, hash, options) { 
+        var msg = {type: "SIGN", cert: cert.hex, hash: hash.hex, hashtype: hash.type, lang: options.lang, info: options.info}; 
+        console.log("sign()"); 
+        return messagePromise(msg); 
+    }; 
+    this.getVersion = function() { 
+        console.log("getVersion()"); 
+        return messagePromise({ 
+            type: "VERSION" 
+        }); 
+    }; 
+}</script></head><body>
 
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:description" content="Dialogflow unofficial Progressive Web App" />
-        <meta name="twitter:title" content="Dialogflow for Web" />
-        <meta name="twitter:image" content="https://i.imgur.com/YkOoS4h.png" />
 
-        <!-- Windows 8 -->
-        <meta name="msapplication-TileImage" content="https://console.dialogflow.com/api-client/assets/img/logo-short.png">
-        <meta name="msapplication-TileColor" content="#FF9800">
-        
-        <!-- Microdata -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Website",
-            "publisher": {
-                "@type": "Person",
-                "name": "Your Name"
-            },
-            "url": "https://example.com",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://example.com"
-            },
-            "description": "Dialogflow unofficial Progressive Web App",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://example.com?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        }
-        </script>
 
-        <!-- Stylesheets -->
-        <link rel="stylesheet" href="https://unpkg.com/material-components-web@0.26.0/dist/material-components-web.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    <body>
-        <div id="app"></div>
-        <script src="dist/build.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>İphone X</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="sass/style.css">
 
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/worker.js')
-                })
-            }
-        </script>
 
-        <noscript>
-            <h1>:(</h1>
-            <p>Hello, it looks like your JavaScript is disabled, please enable it, since the page can't render without it</p>
-        </noscript>
-    </body>
-</html>
+    <div class="frame">
+        <div class="frame-content">
+            <div class="frame-content-header">
+                <div class="frame-header">
+                    <div class="frame-header-speaker"></div>
+                    <div class="frame-header-camera"></div>
+                </div>
+                <div class="container">
+                    <div class="header-bars">
+                        <div class="header-bars-block">
+                            <span>9:41</span>
+                        </div>
+                        <div class="header-bars-block">
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="container">
+              <iframe
+                  allow="microphone;"
+                  width="100%"
+                  height="557px"
+                  src="bot.html"
+                  style="border:0">
+              </iframe>
+                
+            </div>
+
+            <div class="frame-content-bottom">
+                <div class="bottom-shape"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--
+<i class="fas fa-signal"></i>
+<i class="fas fa-wifi"></i>
+<i class="fas fa-battery-full"></i>
+<i class="fas fa-plus"></i>
+
+<i class="fas fa-star"></i>
+<i class="fas fa-list-ol"></i>
+<i class="fas fa-users"></i>
+<i class="fas fa-phone-square"></i>
+<i class="fas fa-volume-up"></i>
+
+<i class="fas fa-comment"></i>
+<i class="fas fa-phone"></i>
+<i class="fas fa-video"></i>
+-->
+
+</body></html>

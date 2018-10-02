@@ -77,7 +77,7 @@
                                 {{r.formattedText}}
                             </section>
                             <section class="mdc-card__actions" v-for="button in r.buttons">
-                                <a class="mdc-button mdc-button--compact themed mdc-card__action" target="_blank" :href="button.postback">{{button.text}} <i class="material-icons openlink">open_in_new</i></a>
+                                <a class="mdc-button mdc-button--compact themed mdc-card__action" target="_blank" href="https://demo.please.com">{{button.text}} <i class="material-icons openlink">open_in_new</i></a>
                             </section>
                         </div>
 
