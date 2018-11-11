@@ -64,6 +64,10 @@
                     <!-- Google Assistant output -->
                     <div v-for="r in a.result.fulfillment.messages">
 
+                        <div v-if="r.type == 0" class="bubble bot">
+                            {{r.speech}}
+                        </div>
+
                         <!-- Bot message types / Card -->
 
                         <div class="mdc-card" v-if="r.type == 1">
@@ -132,9 +136,9 @@
 
                         <!-- Bot message types / Suggestion Chip -->
 
-                        <div v-if="r.type == 'suggestion_chips'" class="chips">
-                            <div class="suggestion" @click="autosubmit(s.title)" v-for="s in r.suggestions">
-                                {{s.title}}
+                        <div v-if="r.type == 2" class="chips">
+                            <div class="suggestion" @click="autosubmit(s)" v-for="s in r.replies">
+                                {{s}}
                             </div>
                         </div>
 
