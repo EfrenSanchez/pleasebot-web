@@ -1,6 +1,7 @@
 importScripts('/worker-polyfill.js')
 self.addEventListener('install', function(event) {
     console.log("Dialogflow Service Worker installed")
+    /*
     event.waitUntil(caches.open('dialogflow').then(function(cache) {
         return cache.addAll([
             '/',
@@ -10,6 +11,7 @@ self.addEventListener('install', function(event) {
             '/dist/build.js'
         ])
     }))
+    */
 })
 
 self.addEventListener('fetch', function(event) {

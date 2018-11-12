@@ -23,11 +23,14 @@
         <div v-if="answers.length == 0 && online == true">
             <h1 class="title mdc-typography--headline">
                 <div class="material-icons up">arrow_upward</div>
+                
                 <br>
                 <br>
                     {{config.locale.strings.welcomeTitle}}
 
                     <p class="mdc-typography--body2">{{config.locale.strings.welcomeDescription}}</p>
+
+                    <img src="/please.bot.svg" width="150">
             </h1>
         </div>
 
