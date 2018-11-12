@@ -7,7 +7,7 @@ export default {
     locale: {
         strings: {
             welcomeTitle: "Try our bot",
-            welcomeDescription: `You can type "Book a trip to London" for example. Or just press on the microphone and say it`,
+            welcomeDescription: `You can type or say "Please, book a trip to London" for example. Or just press on the microphone and say it`,
             offlineTitle: "Oh, no!",
             offlineDescription: "It looks like you are not connected to the internet, this webpage requires internet connection, to process your requests",
             queryTitle: "Please book...",
