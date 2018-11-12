@@ -23,7 +23,7 @@
         <div v-if="answers.length == 0 && online == true">
             <h1 class="title mdc-typography--headline">
                 <div class="material-icons up">arrow_upward</div>
-                
+
                 <br>
                 <br>
                     {{config.locale.strings.welcomeTitle}}
@@ -60,9 +60,7 @@
 
                     <!-- Bot message types / Speech -->
 
-                    <div v-if="a.result.fulfillment.speech" class="bubble bot">
-                        {{a.result.fulfillment.speech}}
-                    </div>
+                    
 
                     <!-- Google Assistant output -->
                     <div v-for="r in a.result.fulfillment.messages">
